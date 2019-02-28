@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Combined Build Config Variables</string>
+    <string name="server_url">Server URL:</string>
 </resources>

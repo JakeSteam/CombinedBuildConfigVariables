@@ -25,26 +25,26 @@ android {
     productFlavors {
         companyA {
             ext.serverUrl = [
-                    debug: "",
-                    qa: "",
-                    staging: "",
-                    release: ""
+                    debug: "https://internal.companya-dev.com",
+                    qa: "https://testing.companya.com",
+                    staging: "https://beta.companya.com",
+                    release: "https://api.companya.com"
             ]
         }
         companyB {
             ext.serverUrl = [
-                    debug: "",
-                    qa: "",
-                    staging: "",
-                    release: ""
+                    debug: "https://alpha.test.companyb.net",
+                    qa: "https://test.companyb.net",
+                    staging: "https://api.companyb.net",
+                    release: "https://api.companyb.net"
             ]
         }
         companyC {
             ext.serverUrl = [
-                    debug: "",
-                    qa: "",
-                    staging: "",
-                    release: ""
+                    debug: "http://192.168.0.1:29",
+                    qa: "http://192.168.0.1:45",
+                    staging: "http://192.168.0.1:77",
+                    release: "https://api.companyc.com"
             ]
         }
     }
