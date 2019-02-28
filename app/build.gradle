@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "uk.co.jakelee.combinedbuildconfigvariables"
+        minSdkVersion 17
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {}
+        qa {}
+        staging {}
+        release {}
+    }
+
+    flavorDimensions "company"
+    productFlavors {
+        companyA {
+            ext.serverUrl = [
+                    debug: "",
+                    qa: "",
+                    staging: "",
+                    release: ""
+            ]
+        }
+        companyB {
+            ext.serverUrl = [
+                    debug: "",
+                    qa: "",
+                    staging: "",
+                    release: ""
+            ]
+        }
+        companyC {
+            ext.serverUrl = [
+                    debug: "",
+                    qa: "",
+                    staging: "",
+                    release: ""
+            ]
+        }
+    }
+
+    applicationVariants.all { variant ->
+        def flavor = variant.productFlavors[0]
+        variant.buildConfigField "String", "SERVER_URL", "\"${flavor.serverUrl[variant.buildType.name]}\""
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+}
