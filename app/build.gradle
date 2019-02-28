@@ -16,9 +16,9 @@ android {
     }
     buildTypes {
         debug {}
-        qa {}
-        staging {}
-        release {}
+        qa { signingConfig debug.signingConfig }
+        staging { signingConfig debug.signingConfig }
+        release { signingConfig debug.signingConfig }
     }
 
     flavorDimensions "company"
